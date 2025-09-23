@@ -5,6 +5,19 @@ services:
       context: .
       dockerfile: ./apps/store/Dockerfile
     image: renovabit-store
-    restart: always
-    ports:
-      - "4000:3000"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.renovabit-store.rule=Host(`store.reyserlyn.com`)"
+      - "traefik.http.routers.renovabit-store.entrypoints=websecure"
+      - "traefik.http.routers.renovabit-store.tls=true"
+      - "traefik.http.routers.renovabit-store.tls.certresolver=cloudflare"
+      - "traefik.http.services.renovabit-store.loadbalancer.server.port=3000"
+      - "traefik.http.routers.renovabit-store.service=renovabit-store"
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true
