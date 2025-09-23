@@ -9,5 +9,6 @@ const nextConfig: NextConfig = {
   },
   typedRoutes: true,
   transpilePackages: ["@renovabit/ui"],
+  output: "standalone",
 };
 export default nextConfig;

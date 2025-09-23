@@ -1,0 +1,41 @@
+# Archivos de desarrollo
+node_modules
+.next
+.git
+.gitignore
+README.md
+.env*.local
+.env.example
+
+# Archivos o carpetas de desarrollo
+.vscode
+.github
+.cursor
+.husky
+
+
+# Logs y temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Documentation
+docs/
+*.md
+LICENSE
+
+# Build artifacts que no necesita Docker
+.turbo/
+dist/
+out/
+.swc/
+
+# Docker relacionado
+Dockerfile*
+docker-compose*
+.dockerignore

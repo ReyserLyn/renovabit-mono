@@ -1,0 +1,10 @@
+services:
+  renovabit-store:
+    container_name: renovabit-store
+    build:
+      context: .
+      dockerfile: ./apps/store/Dockerfile
+    image: renovabit-store
+    restart: always
+    ports:
+      - "4000:3000"
