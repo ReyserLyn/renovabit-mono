@@ -9,7 +9,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.renovabit-store.rule=Host(`store.reyserlyn.com`)"
+      - "traefik.http.routers.renovabit-store.rule=Host(`store.renovabit.com`)"
       - "traefik.http.routers.renovabit-store.entrypoints=websecure"
       - "traefik.http.routers.renovabit-store.tls=true"
       - "traefik.http.routers.renovabit-store.tls.certresolver=cloudflare"
