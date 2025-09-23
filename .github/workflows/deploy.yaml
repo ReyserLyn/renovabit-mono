@@ -22,4 +22,4 @@ jobs:
           docker compose up -d --remove-orphans
 
       - name: Limpiar imágenes huérfanas
-        run: docker image prune -af
+        run: docker image prune -f
