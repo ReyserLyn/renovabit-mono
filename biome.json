@@ -22,5 +22,13 @@
       "!**/.source"
     ]
   },
+  "linter": {
+    "rules": {
+      "style": {
+        "noMagicNumbers": "off",
+        "useNamingConvention": "off"
+      }
+    }
+  },
   "extends": ["ultracite"]
 }

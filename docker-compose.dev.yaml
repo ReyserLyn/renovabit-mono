@@ -8,3 +8,29 @@ services:
     restart: always
     ports:
       - "4000:3000"
+    depends_on:
+      - renovabit-postgres
+    networks:
+      - renovabit
+
+  renovabit-postgres:
+    container_name: renovabit-postgres
+    image: postgres:17
+    restart: always
+    env_file:
+      - .env.local
+    ports:
+      - "5432:5432"
+    volumes:
+      - renovabit-postgres-data:/var/lib/postgresql/data
+    networks:
+      - renovabit
+
+volumes:
+  renovabit-postgres-data:
+    name: renovabit-postgres-data
+
+networks:
+  renovabit:
+    name: renovabit
+    driver: bridge
