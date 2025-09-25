@@ -18,6 +18,24 @@ services:
     networks:
       - traefik
 
+  renovabit-postgres:
+    container_name: renovabit-postgres
+    image: postgres:17
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - renovabit-postgres-data:/var/lib/postgresql/data
+    networks:
+      - renovabit
+
 networks:
   traefik:
     external: true
+  renovabit:
+    name: renovabit
+    driver: bridge
+
+volumes:
+  renovabit-postgres-data:
+    name: renovabit-postgres-data
