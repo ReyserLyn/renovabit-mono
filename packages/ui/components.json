@@ -16,5 +16,8 @@
     "ui": "@renovabit/ui/components/ui",
     "lib": "@renovabit/ui/lib",
     "hooks": "@renovabit/ui/hooks"
+  },
+  "registries": {
+    "@reui": "https://reui.io/r/{name}.json"
   }
 }

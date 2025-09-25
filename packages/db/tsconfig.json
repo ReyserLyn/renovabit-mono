@@ -1,0 +1,13 @@
+{
+  "extends": "@renovabit/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["**/*.ts", "seed"],
+  "exclude": ["node_modules", "dist"]
+}
