@@ -26,8 +26,18 @@ services:
       - .env
     volumes:
       - renovabit-postgres-data:/var/lib/postgresql/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.tcp.routers.renovabit-postgres.rule=HostSNI(`db.renovabit.com`)"
+      - "traefik.tcp.routers.renovabit-postgres.entrypoints=postgres"
+      - "traefik.tcp.routers.renovabit-postgres.tls=true"
+      - "traefik.tcp.routers.renovabit-postgres.tls.certresolver=cloudflare"
+      - "traefik.tcp.services.renovabit-postgres.loadbalancer.server.port=5432"
+      - "traefik.http.routers.renovabit-postgres.service=renovabit-postgres"
     networks:
       - renovabit
+      - traefik
 
 networks:
   traefik:
