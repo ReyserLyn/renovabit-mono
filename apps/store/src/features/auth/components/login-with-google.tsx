@@ -18,7 +18,7 @@ export function LoginWithGoogle() {
       type="button"
     >
       <LogoGoogle />
-      Iniciar sesión con Google
+      Continuar con Google
     </Button>
   );
 }
