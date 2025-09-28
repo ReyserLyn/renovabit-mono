@@ -31,6 +31,7 @@ export const createAuthActions = () => ({
       body: {
         provider,
         callbackURL: callback,
+        errorCallbackURL: callback,
       },
     });
 
