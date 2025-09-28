@@ -1,4 +1,5 @@
 import Navbar from "@/features/layout/components/navbar";
+import { SidebarProvider } from "@/features/layout/components/sidebar-provider";
 
 export default function MainLayout({
   children,
@@ -7,8 +8,10 @@ export default function MainLayout({
 }) {
   return (
     <div className="container">
-      <Navbar />
-      {children}
+      <SidebarProvider>
+        <Navbar />
+        {children}
+      </SidebarProvider>
     </div>
   );
 }

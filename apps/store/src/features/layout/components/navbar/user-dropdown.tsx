@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@renovabit/ui/components/ui/dropdown-menu";
-import { FileStack, LogOut, Settings, User } from "lucide-react";
+import { Files, LogOut, Settings, User } from "lucide-react";
 import Link from "next/link";
 import { signOut } from "@/features/auth/actions/auth-actions";
 
@@ -57,7 +57,7 @@ export default function UserDropdown({ session }: { session: Session }) {
 
           <DropdownMenuItem asChild className="cursor-pointer">
             <Link href="/ordenes">
-              <FileStack />
+              <Files />
               <span>Ordenes</span>
             </Link>
           </DropdownMenuItem>

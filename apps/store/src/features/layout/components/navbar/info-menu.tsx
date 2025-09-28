@@ -3,6 +3,10 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from "@renovabit/ui/components/ui/navigation-menu";
+import {
+  COMPANY_LINKS,
+  POLICY_LINKS,
+} from "@/features/layout/constants/navigation";
 import { ListItem } from "./list-item";
 
 export function InfoMenu() {
@@ -17,8 +21,9 @@ export function InfoMenu() {
               Empresa
             </h6>
             <ul className="grid gap-3">
-              <ListItem href="/sobre-nosotros" title="Sobre Nosotros" />
-              <ListItem href="/contacto" title="Contacto" />
+              {COMPANY_LINKS.map((link) => (
+                <ListItem href={link.href} key={link.href} title={link.title} />
+              ))}
             </ul>
           </div>
 
@@ -27,19 +32,9 @@ export function InfoMenu() {
               Políticas
             </h6>
             <ul className="grid gap-3">
-              <ListItem
-                href="/terminos-condiciones"
-                title="Términos y Condiciones"
-              />
-              <ListItem
-                href="/politica-privacidad"
-                title="Política de Privacidad"
-              />
-              <ListItem href="/politica-envios" title="Política de Envíos" />
-              <ListItem
-                href="/politica-devoluciones"
-                title="Devoluciones y Garantía"
-              />
+              {POLICY_LINKS.map((link) => (
+                <ListItem href={link.href} key={link.href} title={link.title} />
+              ))}
             </ul>
           </div>
         </div>

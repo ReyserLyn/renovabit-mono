@@ -14,6 +14,7 @@ import CartButton from "./navbar/cart-button";
 import { ActionButtons, BrandMenu, InfoMenu } from "./navbar/index";
 import InputSearch from "./navbar/input-search";
 import { ProductsMenu } from "./navbar/products-menu";
+import { SidebarToggle } from "./sidebar/sidebar-toggle";
 
 export default async function Navbar() {
   const session = await auth.api.getSession({
@@ -22,7 +23,9 @@ export default async function Navbar() {
 
   return (
     <nav className="flex w-full flex-col items-center gap-4 py-4">
-      <div className="flex w-full items-center justify-between gap-8">
+      <div className="flex w-full items-center justify-between">
+        <SidebarToggle />
+
         <Link href="/">
           <LogoHorizontalLight className="w-[170px] md:w-[200px]" />
         </Link>

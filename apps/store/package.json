@@ -14,13 +14,15 @@
     "@renovabit/auth": "*",
     "@renovabit/db": "*",
     "@renovabit/ui": "*",
+    "immer": "^10.1.3",
     "lucide-react": "^0.544.0",
     "next": "^15.6.0-canary.26",
     "nuqs": "^2.6.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.63.0",
-    "zod": "^4.1.11"
+    "zod": "^4.1.11",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@renovabit/tailwind-config": "*",
