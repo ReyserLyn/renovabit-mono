@@ -25,11 +25,11 @@ export function AuthButtons({ session }: { session: Session | null }) {
           <Link
             href={`/iniciar-sesion?callback=${encodeURIComponent(callback)}`}
           >
-            <span className="hidden md:block">
+            <span className="hidden md:flex">
               <LogIn />
               Iniciar Sesión
             </span>
-            <span className="block md:hidden">
+            <span className="flex md:hidden">
               <span className="sr-only">Iniciar Sesión</span>
               <LogIn />
             </span>

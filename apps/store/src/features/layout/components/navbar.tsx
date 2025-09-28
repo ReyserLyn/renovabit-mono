@@ -39,7 +39,7 @@ export default async function Navbar() {
       <div className="flex w-full items-center justify-between gap-4">
         <InputSearch className="block w-full max-w-xl md:hidden" />
 
-        <NavigationMenu className="hidden md:block">
+        <NavigationMenu className="hidden md:flex">
           <NavigationMenuList className="gap-1">
             <ProductsMenu />
 
