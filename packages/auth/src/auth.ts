@@ -6,7 +6,7 @@ import { nextCookies } from "better-auth/next-js";
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET,
   trustedOrigins: [
-    process.env.NEXT_PUBLIC_URL ?? "",
+    process.env.BETTER_AUTH_URL ?? "",
     "localhost:3000",
     "localhost:4000",
   ],
