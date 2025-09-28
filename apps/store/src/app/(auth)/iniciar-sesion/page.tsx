@@ -18,10 +18,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { parseAsString, useQueryState } from "nuqs";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import { loginSubmitHandler } from "@/features/auth/actions/login/submit";
-import { LoginWithGoogle } from "@/features/auth/components/oauth/login-with-google";
+import { LoginWithGoogle } from "@/features/auth/components/login-with-google";
 import {
   type LoginFormSchemaType,
   loginFormSchema,
@@ -29,6 +29,14 @@ import {
 import { LogoMonogramLight } from "@/logo/logo-ts";
 
 export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
+  );
+}
+
+function LoginForm() {
   const router = useRouter();
   const [callback] = useQueryState("callback", parseAsString.withDefault("/"));
 

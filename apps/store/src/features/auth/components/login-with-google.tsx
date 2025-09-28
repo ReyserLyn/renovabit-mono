@@ -2,7 +2,7 @@
 import { LogoGoogle } from "@renovabit/ui/components/logo/logo-google";
 import { Button } from "@renovabit/ui/components/ui/button";
 import { parseAsString, useQueryState } from "nuqs";
-import { signInSocial } from "../../actions/auth-actions";
+import { signInSocial } from "../actions/auth-actions";
 
 export function LoginWithGoogle() {
   const [callback] = useQueryState("callback", parseAsString.withDefault("/"));

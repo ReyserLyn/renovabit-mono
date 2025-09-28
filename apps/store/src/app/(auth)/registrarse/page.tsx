@@ -19,10 +19,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { parseAsString, useQueryState } from "nuqs";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import { registerSubmitHandler } from "@/features/auth/actions/register/submit";
-import { LoginWithGoogle } from "@/features/auth/components/oauth/login-with-google";
+import { LoginWithGoogle } from "@/features/auth/components/login-with-google";
 import {
   type RegisterFormSchemaType,
   registerFormSchema,
@@ -30,6 +30,14 @@ import {
 import { LogoMonogramLight } from "@/logo/logo-ts";
 
 export default function RegisterPage() {
+  return (
+    <Suspense>
+      <RegisterForm />
+    </Suspense>
+  );
+}
+
+function RegisterForm() {
   const router = useRouter();
   const [callback] = useQueryState("callback", parseAsString.withDefault("/"));
 
@@ -207,7 +215,7 @@ export default function RegisterPage() {
             src="/images/auth/login.avif"
           />
           <div className="absolute inset-0 bg-black/50" />
-        </div>{" "}
+        </div>
       </div>
     </div>
   );
