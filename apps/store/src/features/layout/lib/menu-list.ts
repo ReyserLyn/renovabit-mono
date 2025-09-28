@@ -120,7 +120,7 @@ export async function getMenuList(): Promise<Group[]> {
             submenus: [],
           },
           {
-            href: "/armar-tu-pc",
+            href: "/arma-tu-pc",
             label: "Arma tu PC",
             icon: Computer,
             submenus: [],
@@ -193,7 +193,7 @@ function getStaticMenuList(): Group[] {
           submenus: [],
         },
         {
-          href: "/armar-tu-pc",
+          href: "/arma-tu-pc",
           label: "Arma tu PC",
           icon: Computer,
           submenus: [],
