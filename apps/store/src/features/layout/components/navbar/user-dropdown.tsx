@@ -27,8 +27,8 @@ export default function UserDropdown({ session }: { session: Session }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button shape="circle" size="icon">
-          <Avatar>
+        <Button className="size-8.5" shape="circle" size="icon">
+          <Avatar className="size-8.5">
             <AvatarImage
               alt={`imagen de ${name}`}
               fetchPriority="high"
