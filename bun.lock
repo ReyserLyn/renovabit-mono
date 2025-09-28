@@ -20,6 +20,7 @@
         "@renovabit/auth": "*",
         "@renovabit/db": "*",
         "@renovabit/ui": "*",
+        "lucide-react": "^0.544.0",
         "next": "^15.6.0-canary.26",
         "nuqs": "^2.6.0",
         "react": "^19.1.1",
