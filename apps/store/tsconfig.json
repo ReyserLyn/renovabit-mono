@@ -10,7 +10,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@renovabit/ui/*": ["../../packages/ui/src/*"],
-      "@renovabit/db/*": ["../../packages/db/*"]
+      "@renovabit/db/*": ["../../packages/db/*"],
+      "@renovabit/auth/*": ["../../packages/auth/src/*"]
     }
   },
   "include": [
@@ -18,7 +19,9 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/components/logo/logo-google.tsx",
+    "../../packages/ui/src/components/logo/logo-peru.tsx"
   ],
   "exclude": ["node_modules", ".next"]
 }
