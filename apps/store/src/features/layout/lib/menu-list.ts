@@ -18,21 +18,21 @@ import {
 } from "lucide-react";
 import { INFO_LINKS } from "@/features/layout/constants/navigation";
 
-type Submenu = {
+export type Submenu = {
   href: string;
   label: string;
   active?: boolean;
 };
 
-type Menu = {
+export type Menu = {
   href: string;
   label: string;
   active?: boolean;
-  icon: LucideIcon;
+  icon: string;
   submenus?: Submenu[];
 };
 
-type Group = {
+export type Group = {
   groupLabel: string;
   menus: Menu[];
 };
@@ -47,29 +47,44 @@ type CategoryGroup = {
   items: CategoryItem[];
 };
 
-function getCategoryIcon(categoryName: string): LucideIcon {
-  const iconMap: Record<string, LucideIcon> = {
-    Componentes: Cpu,
-    Periféricos: Mouse,
-    Equipos: Laptop,
-    Productos: Package,
+export const iconMap: Record<string, LucideIcon> = {
+  Badge,
+  Computer,
+  Cpu,
+  Files,
+  Info,
+  Laptop,
+  Mouse,
+  Package,
+  Settings,
+  SquarePercent,
+  Store,
+  User,
+};
+
+function getCategoryIcon(categoryName: string): string {
+  const categoryIconMap: Record<string, string> = {
+    Componentes: "Cpu",
+    Periféricos: "Mouse",
+    Equipos: "Laptop",
+    Productos: "Package",
   };
 
-  if (iconMap[categoryName]) {
-    return iconMap[categoryName];
+  if (categoryIconMap[categoryName]) {
+    return categoryIconMap[categoryName];
   }
 
   const lowerCategoryName = categoryName.toLowerCase();
-  for (const [key, icon] of Object.entries(iconMap)) {
+  for (const [key, iconName] of Object.entries(categoryIconMap)) {
     if (
       lowerCategoryName.includes(key.toLowerCase()) ||
       key.toLowerCase().includes(lowerCategoryName)
     ) {
-      return icon;
+      return iconName;
     }
   }
 
-  return Package;
+  return "Package";
 }
 
 function convertCategoryDataToMenus(categoryData: CategoryGroup[]): Menu[] {
@@ -110,19 +125,19 @@ export async function getMenuList(): Promise<Group[]> {
           {
             href: "/",
             label: "Inicio",
-            icon: Store,
+            icon: "Store",
             submenus: [],
           },
           {
             href: "/ofertas",
             label: "Ofertas",
-            icon: SquarePercent,
+            icon: "SquarePercent",
             submenus: [],
           },
           {
             href: "/arma-tu-pc",
             label: "Arma tu PC",
-            icon: Computer,
+            icon: "Computer",
             submenus: [],
           },
         ],
@@ -134,13 +149,13 @@ export async function getMenuList(): Promise<Group[]> {
           {
             href: "",
             label: "Marcas",
-            icon: Badge,
+            icon: "Badge",
             submenus: brandSubmenus,
           },
           {
             href: "",
             label: "Información",
-            icon: Info,
+            icon: "Info",
             submenus: INFO_LINKS.map((link) => ({
               href: link.href,
               label: link.label,
@@ -154,17 +169,17 @@ export async function getMenuList(): Promise<Group[]> {
           {
             href: "/perfil",
             label: "Perfil",
-            icon: User,
+            icon: "User",
           },
           {
             href: "/ordenes",
             label: "Ordenes",
-            icon: Files,
+            icon: "Files",
           },
           {
             href: "/preferencias",
             label: "Preferencias",
-            icon: Settings,
+            icon: "Settings",
           },
         ],
       },
@@ -183,19 +198,19 @@ function getStaticMenuList(): Group[] {
         {
           href: "/",
           label: "Inicio",
-          icon: Store,
+          icon: "Store",
           submenus: [],
         },
         {
           href: "/ofertas",
           label: "Ofertas",
-          icon: SquarePercent,
+          icon: "SquarePercent",
           submenus: [],
         },
         {
           href: "/arma-tu-pc",
           label: "Arma tu PC",
-          icon: Computer,
+          icon: "Computer",
           submenus: [],
         },
       ],
@@ -206,17 +221,17 @@ function getStaticMenuList(): Group[] {
         {
           href: "/perfil",
           label: "Perfil",
-          icon: User,
+          icon: "User",
         },
         {
           href: "/ordenes",
           label: "Ordenes",
-          icon: Files,
+          icon: "Files",
         },
         {
           href: "/preferencias",
           label: "Preferencias",
-          icon: Settings,
+          icon: "Settings",
         },
       ],
     },

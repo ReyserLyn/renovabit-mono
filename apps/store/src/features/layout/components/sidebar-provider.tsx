@@ -1,18 +1,16 @@
-"use client";
-
-import { useSidebarStore } from "@/features/layout/store/sidebar-store";
+import { getMenuList } from "../lib/menu-list";
 import { SheetMenu } from "./sidebar/sheet-menu";
 
 type SidebarProviderProps = {
   children: React.ReactNode;
 };
 
-export function SidebarProvider({ children }: SidebarProviderProps) {
-  const { isOpen, close } = useSidebarStore();
+export async function SidebarProvider({ children }: SidebarProviderProps) {
+  const data = await getMenuList();
 
   return (
     <>
-      <SheetMenu isOpen={isOpen} onClose={close} />
+      <SheetMenu data={data} />
       {children}
     </>
   );
